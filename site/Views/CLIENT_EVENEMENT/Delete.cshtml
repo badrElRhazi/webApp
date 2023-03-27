@@ -1,0 +1,113 @@
+﻿@model site.Models.CLIENT_EVENEMENT
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_ChoixEventLayout1.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CLIENT_EVENEMENT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CIN_CLIENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CIN_CLIENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOM_Client)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOM_Client)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRENOM_CLIENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRENOM_CLIENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_NAISSANCE_CLIENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_NAISSANCE_CLIENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADRESSE_CLIENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADRESSE_CLIENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEXE_CLIENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEXE_CLIENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEPHONE_CLIENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEPHONE_CLIENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TYPE_EVENEMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TYPE_EVENEMENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOM_EVENEMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOM_EVENEMENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_EVENEMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_EVENEMENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DURE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DURE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

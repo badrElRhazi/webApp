@@ -1,0 +1,75 @@
+﻿@model site.Models.FORMATION_INDIVIDUAL
+
+
+
+@{
+    ViewBag.Title = "Formation_individuel";
+    Layout = "~/Views/Shared/_FormationIndividuelLayout1.cshtml";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation individuel</title>
+    <link rel="stylesheet" href=@Url.Content("/Content/ss/formation_individuelle.css")>
+</head>
+
+<body>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <script src="/Content/ss/JSFRIND.js"></script>
+
+
+        <div class="style">
+            <form action="#">
+
+
+
+
+                <h2>Formation individuel</h2><br>
+
+                <label>Nom Formation:</label>
+                @Html.EditorFor(model => model.NOM_FR, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NOM_FR, "", new { @class = "text-danger" })
+                <label>Secteur D'activite:</label>
+
+                @{
+                    List<SelectListItem> item = new List<SelectListItem>();
+                    item.Add(new SelectListItem { Text = "Communication", Value = "Communication" });
+                    item.Add(new SelectListItem { Text = "Coaching", Value = "Coaching" });
+                    item.Add(new SelectListItem { Text = "Gestion de ressource humain et management", Value = "Gestion de ressource humain et management" });
+                    item.Add(new SelectListItem { Text = "délégué médicale", Value = "délégué médicale" });
+                    item.Add(new SelectListItem { Text = "Commerce et marketing", Value = "Commerce et marketing" });
+                }
+
+                @Html.DropDownListFor(model => model.SECTEUR_ACTIVITE, item, "Selectionner", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SECTEUR_ACTIVITE, "", new { @class = "text-danger" })
+
+                <label>Mode de règelement:</label><br>
+                <br>
+
+                @Html.RadioButtonFor(model => model.MODE_REGLEMENT, "Cheque")cheque &nbsp;&nbsp;&nbsp;&nbsp;<br />
+                @Html.RadioButtonFor(model => model.MODE_REGLEMENT, "Virement")virement<br />
+                @Html.RadioButtonFor(model => model.MODE_REGLEMENT, "Versement;")versement
+
+                @Html.ValidationMessageFor(model => model.MODE_REGLEMENT, "", new { @class = "text-danger" })
+                <br />
+
+                <label>Etat :</label>
+                @Html.EditorFor(model => model.Etat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Etat, "", new { @class = "text-danger" })
+
+
+
+
+                <input type="submit" value="Envoyer" onclick="valider()">
+
+
+            </form>
+        </div>
+        <script src="/Content/ss/JSFRIND.js"></script>
+    }
+    </body>

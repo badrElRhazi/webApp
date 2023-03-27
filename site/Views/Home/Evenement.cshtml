@@ -1,0 +1,85 @@
+﻿@model site.Models.CLIENT_EVENEMENT
+@{
+    ViewBag.Title = "Evenement";
+    Layout = "~/Views/Shared/_EvenementLayout1.cshtml";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evenement</title>
+    <link rel="stylesheet" href=@Url.Content("/Content/ss/Evenement.css")>
+
+</head>
+
+
+<body>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="style">
+            <form action="#">
+
+                <h2>Evènement</h2><br>
+
+
+                <h4>Cordonnées de l'évènement:</h4>
+
+
+
+
+                <label>CIN:</label>
+                @Html.EditorFor(model => model.CIN_CLIENT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CIN_CLIENT, "", new { @class = "text-danger" })
+                <label>NOM:</label>
+                @Html.EditorFor(model => model.NOM_Client, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NOM_Client, "", new { @class = "text-danger" })
+                <label>PRENOM:</label>
+                @Html.EditorFor(model => model.PRENOM_CLIENT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PRENOM_CLIENT, "", new { @class = "text-danger" })
+                <label>DATE DE NAISSANCE:</label>
+                @Html.EditorFor(model => model.DATE_NAISSANCE_CLIENT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DATE_NAISSANCE_CLIENT, "", new { @class = "text-danger" })
+                <label>ADRESSE:</label>
+                @Html.EditorFor(model => model.ADRESSE_CLIENT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ADRESSE_CLIENT, "", new { @class = "text-danger" })
+                <label>SEXE:</label>
+                @{
+                    List<SelectListItem> item = new List<SelectListItem>();
+                    item.Add(new SelectListItem { Text = "Homme", Value = "Homme" });
+                    item.Add(new SelectListItem { Text = "Femme", Value = "Femme" });
+
+                }
+
+                @Html.DropDownListFor(model => model.SEXE_CLIENT, item, "Selectionner", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SEXE_CLIENT, "", new { @class = "text-danger" })
+                <label>TELEPHONNE:</label>
+                @Html.EditorFor(model => model.TELEPHONE_CLIENT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TELEPHONE_CLIENT, "", new { @class = "text-danger" })
+                <label>Type d'évènement:</label>
+                @Html.EditorFor(model => model.TYPE_EVENEMENT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TYPE_EVENEMENT, "", new { @class = "text-danger" })
+                <label>Libelle evenement:</label>
+                @Html.EditorFor(model => model.NOM_EVENEMENT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NOM_EVENEMENT, "", new { @class = "text-danger" })
+                <label>Date d'évènement:</label>
+
+                @Html.EditorFor(model => model.DATE_EVENEMENT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DATE_EVENEMENT, "", new { @class = "text-danger" })
+                <label>La Duré de l'évènement:</label>
+                @Html.EditorFor(model => model.DURE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DURE, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Envoyer" class="btn btn-default" />
+                        <input type="button" value="<< Retourne à l'Accueil" onclick="window.location.href='@Url.Action("Index","Home")'">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="/Content/ss/JSEvenement.js"></script>
+    }
+    </body>

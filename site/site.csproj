@@ -1,0 +1,416 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0E4BC0A0-45E1-46BF-9625-9C3CE48C0F23}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>site</RootNamespace>
+    <AssemblyName>site</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44391</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\css\ccse.png" />
+    <Content Include="Content\assets\css\fontawesome-all.min.css" />
+    <Content Include="Content\assets\css\images\ccse.png" />
+    <Content Include="Content\assets\css\images\close.svg" />
+    <Content Include="Content\assets\css\index.html" />
+    <Content Include="Content\assets\css\main.css" />
+    <Content Include="Content\assets\css\noscript.css" />
+    <Content Include="Content\assets\js\breakpoints.min.js" />
+    <Content Include="Content\assets\js\browser.min.js" />
+    <Content Include="Content\assets\js\jquery.min.js" />
+    <Content Include="Content\assets\js\jquery.scrollex.min.js" />
+    <Content Include="Content\assets\js\main.js" />
+    <Content Include="Content\assets\js\util.js" />
+    <Content Include="Content\assets\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\assets\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\assets\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\images\creance.png" />
+    <Content Include="Content\images\facture.jpg" />
+    <Content Include="Content\images\recouvrement_creances.jpg" />
+    <Content Include="Content\ss\Client.html" />
+    <Content Include="Content\ss\elements.html" />
+    <Content Include="Content\ss\formation_groupe.css" />
+    <Content Include="Content\images\aa.jpg" />
+    <Content Include="Content\images\anapec.png" />
+    <Content Include="Content\images\bb.jpg" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\c1.jpg" />
+    <Content Include="Content\images\c1.png" />
+    <Content Include="Content\images\C10.png" />
+    <Content Include="Content\images\c11.jpg" />
+    <Content Include="Content\images\C11.png" />
+    <Content Include="Content\images\C12.png" />
+    <Content Include="Content\images\C13.png" />
+    <Content Include="Content\images\C14.png" />
+    <Content Include="Content\images\C15.png" />
+    <Content Include="Content\images\C16.png" />
+    <Content Include="Content\images\c2.jpg" />
+    <Content Include="Content\images\C2.png" />
+    <Content Include="Content\images\c22.jpg" />
+    <Content Include="Content\images\C3.png" />
+    <Content Include="Content\images\C4.png" />
+    <Content Include="Content\images\C5.png" />
+    <Content Include="Content\images\C6.png" />
+    <Content Include="Content\images\C7.png" />
+    <Content Include="Content\images\C8.png" />
+    <Content Include="Content\images\C9.png" />
+    <Content Include="Content\images\cc.jpg" />
+    <Content Include="Content\images\ccse.png" />
+    <Content Include="Content\images\eve.jpg" />
+    <Content Include="Content\images\evenement.jpg" />
+    <Content Include="Content\images\formation.jpg" />
+    <Content Include="Content\images\giac.png" />
+    <Content Include="Content\images\ofppt.png" />
+    <Content Include="Content\images\pic01.jpg" />
+    <Content Include="Content\images\pic02.jpg" />
+    <Content Include="Content\images\pic03.jpg" />
+    <Content Include="Content\images\pic04.jpg" />
+    <Content Include="Content\images\pic05.jpg" />
+    <Content Include="Content\images\pic06.jpg" />
+    <Content Include="Content\images\pic07.jpg" />
+    <Content Include="Content\images\pic08.jpg" />
+    <Content Include="Content\images\rcv.jpg" />
+    <Content Include="Content\ss\Adherent.html" />
+    <Content Include="Content\ss\index.html" />
+    <Content Include="Content\ss\LICENSE.txt" />
+    <Content Include="Content\ss\aa.jpg" />
+    <Content Include="Content\ss\anapec.png" />
+    <Content Include="Content\ss\bb.jpg" />
+    <Content Include="Content\ss\c1.png" />
+    <Content Include="Content\ss\C10.png" />
+    <Content Include="Content\ss\C11.png" />
+    <Content Include="Content\ss\C12.png" />
+    <Content Include="Content\ss\C13.png" />
+    <Content Include="Content\ss\C14.png" />
+    <Content Include="Content\ss\C15.png" />
+    <Content Include="Content\ss\C16.png" />
+    <Content Include="Content\ss\C2.png" />
+    <Content Include="Content\ss\C3.png" />
+    <Content Include="Content\ss\C4.png" />
+    <Content Include="Content\ss\C5.png" />
+    <Content Include="Content\ss\C6.png" />
+    <Content Include="Content\ss\C7.png" />
+    <Content Include="Content\ss\C8.png" />
+    <Content Include="Content\ss\C9.png" />
+    <Content Include="Content\ss\cc.jpg" />
+    <Content Include="Content\ss\ChoixEvenement.css" />
+    <Content Include="Content\ss\ChoixEvenement.html" />
+    <Content Include="Content\ss\e.png" />
+    <Content Include="Content\ss\eve.png" />
+    <Content Include="Content\ss\Evenement.css" />
+    <Content Include="Content\ss\Evenement.html" />
+    <Content Include="Content\ss\evenement.png" />
+    <Content Include="Content\ss\event.png" />
+    <Content Include="Content\ss\events.png" />
+    <Content Include="Content\ss\for.png" />
+    <Content Include="Content\ss\formation.jpg" />
+    <Content Include="Content\ss\FormationChoix.html" />
+    <Content Include="Content\ss\formationn.jpg" />
+    <Content Include="Content\ss\FormationsChoix.css" />
+    <Content Include="Content\ss\formation_groupe.css" />
+    <Content Include="Content\ss\formation_groupe.html" />
+    <Content Include="Content\ss\formation_individuelle.css" />
+    <Content Include="Content\ss\formation_individuelle.html" />
+    <Content Include="Content\ss\giac.png" />
+    <Content Include="Content\ss\JSEvenement.js" />
+    <Content Include="Content\ss\JSFRIND.js" />
+    <Content Include="Content\ss\JSGRP.js" />
+    <Content Include="Content\ss\JSSALLE.js" />
+    <Content Include="Content\ss\NN.html" />
+    <Content Include="Content\ss\nON.html" />
+    <Content Include="Content\ss\ofppt.png" />
+    <Content Include="Content\ss\reference.css" />
+    <Content Include="Content\ss\reference.html" />
+    <Content Include="Content\ss\salle.css" />
+    <Content Include="Content\ss\salle1.css" />
+    <Content Include="Content\ss\salle1.png" />
+    <Content Include="Content\ss\salle2.CSS" />
+    <Content Include="Content\ss\salle2.html" />
+    <Content Include="Content\ss\salle2.png" />
+    <Content Include="Content\ss\salle3.png" />
+    <Content Include="Content\ss\salle4.png" />
+    <Content Include="Content\ss\salle5.png" />
+    <Content Include="Content\ss\salle6.png" />
+    <Content Include="Content\ss\salle7.png" />
+    <Content Include="Content\ss\sl.png" />
+    <Content Include="Content\ss\zak.jpg" />
+    <Content Include="Content\ss\README.txt" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CLIENT_SALLE1Controller.cs" />
+    <Compile Include="Controllers\FORMATION_GROUPEController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ADHERENT.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CLIENT_EVENEMENT.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CLIENT_SALLE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FORMATION_GROUPE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FORMATION_INDIVIDUAL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SALLE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SALLEsController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Content\assets\sass\base\_page.scss" />
+    <Content Include="Content\assets\sass\base\_reset.scss" />
+    <Content Include="Content\assets\sass\base\_typography.scss" />
+    <Content Include="Content\assets\sass\components\_actions.scss" />
+    <Content Include="Content\assets\sass\components\_box.scss" />
+    <Content Include="Content\assets\sass\components\_button.scss" />
+    <Content Include="Content\assets\sass\components\_contact.scss" />
+    <Content Include="Content\assets\sass\components\_features.scss" />
+    <Content Include="Content\assets\sass\components\_form.scss" />
+    <Content Include="Content\assets\sass\components\_icon.scss" />
+    <Content Include="Content\assets\sass\components\_icons.scss" />
+    <Content Include="Content\assets\sass\components\_image.scss" />
+    <Content Include="Content\assets\sass\components\_list.scss" />
+    <Content Include="Content\assets\sass\components\_pagination.scss" />
+    <Content Include="Content\assets\sass\components\_row.scss" />
+    <Content Include="Content\assets\sass\components\_section.scss" />
+    <Content Include="Content\assets\sass\components\_table.scss" />
+    <Content Include="Content\assets\sass\layout\_banner.scss" />
+    <Content Include="Content\assets\sass\layout\_footer.scss" />
+    <Content Include="Content\assets\sass\layout\_header.scss" />
+    <Content Include="Content\assets\sass\layout\_menu.scss" />
+    <Content Include="Content\assets\sass\layout\_wrapper.scss" />
+    <Content Include="Content\assets\sass\libs\_breakpoints.scss" />
+    <Content Include="Content\assets\sass\libs\_functions.scss" />
+    <Content Include="Content\assets\sass\libs\_html-grid.scss" />
+    <Content Include="Content\assets\sass\libs\_mixins.scss" />
+    <Content Include="Content\assets\sass\libs\_vars.scss" />
+    <Content Include="Content\assets\sass\libs\_vendor.scss" />
+    <Content Include="Content\assets\sass\main.scss" />
+    <Content Include="Content\assets\sass\noscript.scss" />
+    <Content Include="Content\assets\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\assets\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\assets\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\assets\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\assets\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\assets\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\assets\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\assets\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\assets\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\assets\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\assets\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\assets\webfonts\fa-solid-900.woff2" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_MainPageLayout1.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_elemLayout1.cshtml" />
+    <Content Include="Views\Home\element.cshtml" />
+    <Content Include="Views\Shared\_Formation_GroupeLayout.cshtml" />
+    <Content Include="Views\Home\Formation_groupe.cshtml" />
+    <Content Include="Views\Shared\_FormationIndividuelLayout1.cshtml" />
+    <Content Include="Views\Home\Formation_individuel.cshtml" />
+    <Content Include="Views\Shared\_EvenementLayout1.cshtml" />
+    <Content Include="Views\Home\Evenement.cshtml" />
+    <Content Include="Views\Shared\_ChoixEventLayout1.cshtml" />
+    <Content Include="Views\Home\Choix_Evenement.cshtml" />
+    <Content Include="Views\Shared\_ChoixFormationLayout1.cshtml" />
+    <Content Include="Views\Home\Choix_Formation.cshtml" />
+    <Content Include="Views\Shared\_SalleLayout1.cshtml" />
+    <Content Include="Views\Shared\_AdherentLayout1.cshtml" />
+    <Content Include="Views\Home\Adherent.cshtml" />
+    <Content Include="Views\Shared\_ClientLayout1.cshtml" />
+    <Content Include="Views\ADHERENTs\Create.cshtml" />
+    <Content Include="Views\ADHERENTs\Delete.cshtml" />
+    <Content Include="Views\ADHERENTs\Details.cshtml" />
+    <Content Include="Views\ADHERENTs\Edit.cshtml" />
+    <Content Include="Views\ADHERENTs\Index.cshtml" />
+    <Content Include="Views\Home\salle.cshtml" />
+    <Content Include="Views\CLIENT_SALLE1\Create.cshtml" />
+    <Content Include="Views\CLIENT_SALLE1\Delete.cshtml" />
+    <Content Include="Views\CLIENT_SALLE1\Details.cshtml" />
+    <Content Include="Views\CLIENT_SALLE1\Edit.cshtml" />
+    <Content Include="Views\CLIENT_SALLE1\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\ma template\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50005</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44391/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

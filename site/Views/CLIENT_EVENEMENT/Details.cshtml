@@ -1,0 +1,107 @@
+﻿@model site.Models.CLIENT_EVENEMENT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_ChoixEventLayout1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CLIENT_EVENEMENT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CIN_CLIENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CIN_CLIENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOM_Client)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOM_Client)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRENOM_CLIENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRENOM_CLIENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_NAISSANCE_CLIENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_NAISSANCE_CLIENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADRESSE_CLIENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADRESSE_CLIENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEXE_CLIENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEXE_CLIENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEPHONE_CLIENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEPHONE_CLIENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TYPE_EVENEMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TYPE_EVENEMENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOM_EVENEMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOM_EVENEMENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_EVENEMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_EVENEMENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DURE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DURE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_CLIENT }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

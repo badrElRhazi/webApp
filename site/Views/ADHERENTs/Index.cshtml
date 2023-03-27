@@ -1,0 +1,76 @@
+﻿@model IEnumerable<site.Models.ADHERENT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdherentLayout1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRENOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATE_NAISSANCE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADRESSE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SEXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TELEPHONE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FORMATION_INDIVIDUAL.NOM_FR)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRENOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATE_NAISSANCE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADRESSE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SEXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEPHONE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FORMATION_INDIVIDUAL.NOM_FR)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_ADHERENT }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_ADHERENT }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_ADHERENT })
+        </td>
+    </tr>
+}
+
+</table>

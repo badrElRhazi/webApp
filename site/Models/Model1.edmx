@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProjetFinFormationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADHERENT">
+          <Key>
+            <PropertyRef Name="ID_ADHERENT" />
+          </Key>
+          <Property Name="ID_ADHERENT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CIN" Type="varchar" MaxLength="30" />
+          <Property Name="NOM" Type="varchar" MaxLength="30" />
+          <Property Name="PRENOM" Type="varchar" MaxLength="30" />
+          <Property Name="DATE_NAISSANCE" Type="datetime" />
+          <Property Name="ADRESSE" Type="varchar" MaxLength="30" />
+          <Property Name="SEXE" Type="varchar" MaxLength="30" />
+          <Property Name="TELEPHONE" Type="varchar" MaxLength="30" />
+          <Property Name="ID_FORMATIONINDIVIDUAL" Type="int" />
+        </EntityType>
+        <EntityType Name="CLIENT_EVENEMENT">
+          <Key>
+            <PropertyRef Name="ID_CLIENT" />
+          </Key>
+          <Property Name="ID_CLIENT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CIN_CLIENT" Type="varchar" MaxLength="30" />
+          <Property Name="NOM_Client" Type="varchar" MaxLength="30" />
+          <Property Name="PRENOM_CLIENT" Type="varchar" MaxLength="30" />
+          <Property Name="DATE_NAISSANCE_CLIENT" Type="datetime" />
+          <Property Name="ADRESSE_CLIENT" Type="varchar" MaxLength="30" />
+          <Property Name="SEXE_CLIENT" Type="varchar" MaxLength="30" />
+          <Property Name="TELEPHONE_CLIENT" Type="varchar" MaxLength="30" />
+          <Property Name="TYPE_EVENEMENT" Type="varchar" MaxLength="30" />
+          <Property Name="NOM_EVENEMENT" Type="varchar" MaxLength="30" />
+          <Property Name="DATE_EVENEMENT" Type="datetime" />
+          <Property Name="DURE" Type="int" />
+        </EntityType>
+        <EntityType Name="CLIENT_SALLE">
+          <Key>
+            <PropertyRef Name="ID_CLIENT_SALLE" />
+          </Key>
+          <Property Name="ID_CLIENT_SALLE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CIN_CLIENT" Type="varchar" MaxLength="30" />
+          <Property Name="NOM_Client" Type="varchar" MaxLength="30" />
+          <Property Name="PRENOM_CLIENT" Type="varchar" MaxLength="30" />
+          <Property Name="DATE_NAISSANCE_CLIENT" Type="datetime" />
+          <Property Name="ADRESSE_CLIENT" Type="varchar" MaxLength="30" />
+          <Property Name="SEXE_CLIENT" Type="varchar" MaxLength="30" />
+          <Property Name="TELEPHONE_CLIENT" Type="varchar" MaxLength="30" />
+          <Property Name="type" Type="varchar" MaxLength="30" />
+          <Property Name="dateDebut" Type="datetime" />
+          <Property Name="dateFin" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FORMATION_GROUPE">
+          <Key>
+            <PropertyRef Name="ID_FORMATIONGROUPE" />
+          </Key>
+          <Property Name="ID_FORMATIONGROUPE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_FR" Type="varchar" MaxLength="30" />
+          <Property Name="Nom_Entrprise" Type="varchar" MaxLength="20" />
+          <Property Name="SECTEUR_ACTIVITE" Type="varchar" MaxLength="30" />
+          <Property Name="MISSION" Type="varchar" MaxLength="30" />
+          <Property Name="OBJECTIF" Type="varchar" MaxLength="30" />
+          <Property Name="EFFECTIF" Type="int" />
+          <Property Name="BESOIN_INDIVIDUELE" Type="varchar" MaxLength="30" />
+          <Property Name="BESOIN" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="FORMATION_INDIVIDUAL">
+          <Key>
+            <PropertyRef Name="ID_FORMATIONINDIVIDUAL" />
+          </Key>
+          <Property Name="ID_FORMATIONINDIVIDUAL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_FR" Type="varchar" MaxLength="30" />
+          <Property Name="SECTEUR_ACTIVITE" Type="varchar" MaxLength="30" />
+          <Property Name="MODE_REGLEMENT" Type="varchar" MaxLength="30" />
+          <Property Name="Etat" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="SALLE">
+          <Key>
+            <PropertyRef Name="ID_SALLE" />
+          </Key>
+          <Property Name="ID_SALLE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAPACITE" Type="int" />
+          <Property Name="DISPONIBILITE" Type="varchar" MaxLength="30" />
+          <Property Name="PRIX" Type="int" />
+          <Property Name="TypeSalle" Type="varchar" MaxLength="20" />
+          <Property Name="DateDisponibilite" Type="date" />
+        </EntityType>
+        <Association Name="FK__ADHERENT__ID_FOR__37A5467C">
+          <End Role="FORMATION_INDIVIDUAL" Type="Self.FORMATION_INDIVIDUAL" Multiplicity="0..1" />
+          <End Role="ADHERENT" Type="Self.ADHERENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORMATION_INDIVIDUAL">
+              <PropertyRef Name="ID_FORMATIONINDIVIDUAL" />
+            </Principal>
+            <Dependent Role="ADHERENT">
+              <PropertyRef Name="ID_FORMATIONINDIVIDUAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjetFinFormationModelStoreContainer">
+          <EntitySet Name="ADHERENT" EntityType="Self.ADHERENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENT_EVENEMENT" EntityType="Self.CLIENT_EVENEMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENT_SALLE" EntityType="Self.CLIENT_SALLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FORMATION_GROUPE" EntityType="Self.FORMATION_GROUPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FORMATION_INDIVIDUAL" EntityType="Self.FORMATION_INDIVIDUAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SALLE" EntityType="Self.SALLE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ADHERENT__ID_FOR__37A5467C" Association="Self.FK__ADHERENT__ID_FOR__37A5467C">
+            <End Role="FORMATION_INDIVIDUAL" EntitySet="FORMATION_INDIVIDUAL" />
+            <End Role="ADHERENT" EntitySet="ADHERENT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjetFinFormationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADHERENT">
+          <Key>
+            <PropertyRef Name="ID_ADHERENT" />
+          </Key>
+          <Property Name="ID_ADHERENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CIN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NOM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PRENOM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_NAISSANCE" Type="DateTime" Precision="3" />
+          <Property Name="ADRESSE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SEXE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TELEPHONE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_FORMATIONINDIVIDUAL" Type="Int32" />
+          <NavigationProperty Name="FORMATION_INDIVIDUAL" Relationship="Self.FK__ADHERENT__ID_FOR__37A5467C" FromRole="ADHERENT" ToRole="FORMATION_INDIVIDUAL" />
+        </EntityType>
+        <EntityType Name="CLIENT_EVENEMENT">
+          <Key>
+            <PropertyRef Name="ID_CLIENT" />
+          </Key>
+          <Property Name="ID_CLIENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CIN_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NOM_Client" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PRENOM_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_NAISSANCE_CLIENT" Type="DateTime" Precision="3" />
+          <Property Name="ADRESSE_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SEXE_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TELEPHONE_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_EVENEMENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NOM_EVENEMENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_EVENEMENT" Type="DateTime" Precision="3" />
+          <Property Name="DURE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CLIENT_SALLE">
+          <Key>
+            <PropertyRef Name="ID_CLIENT_SALLE" />
+          </Key>
+          <Property Name="ID_CLIENT_SALLE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CIN_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NOM_Client" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PRENOM_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_NAISSANCE_CLIENT" Type="DateTime" Precision="3" />
+          <Property Name="ADRESSE_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SEXE_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TELEPHONE_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="dateDebut" Type="DateTime" Precision="3" />
+          <Property Name="dateFin" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="FORMATION_GROUPE">
+          <Key>
+            <PropertyRef Name="ID_FORMATIONGROUPE" />
+          </Key>
+          <Property Name="ID_FORMATIONGROUPE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_FR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nom_Entrprise" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SECTEUR_ACTIVITE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MISSION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OBJECTIF" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="EFFECTIF" Type="Int32" />
+          <Property Name="BESOIN_INDIVIDUELE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="BESOIN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FORMATION_INDIVIDUAL">
+          <Key>
+            <PropertyRef Name="ID_FORMATIONINDIVIDUAL" />
+          </Key>
+          <Property Name="ID_FORMATIONINDIVIDUAL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_FR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SECTEUR_ACTIVITE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MODE_REGLEMENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ADHERENT" Relationship="Self.FK__ADHERENT__ID_FOR__37A5467C" FromRole="FORMATION_INDIVIDUAL" ToRole="ADHERENT" />
+        </EntityType>
+        <EntityType Name="SALLE">
+          <Key>
+            <PropertyRef Name="ID_SALLE" />
+          </Key>
+          <Property Name="ID_SALLE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAPACITE" Type="Int32" />
+          <Property Name="DISPONIBILITE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PRIX" Type="Int32" />
+          <Property Name="TypeSalle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateDisponibilite" Type="DateTime" Precision="0" />
+        </EntityType>
+        <Association Name="FK__ADHERENT__ID_FOR__37A5467C">
+          <End Role="FORMATION_INDIVIDUAL" Type="Self.FORMATION_INDIVIDUAL" Multiplicity="0..1" />
+          <End Role="ADHERENT" Type="Self.ADHERENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORMATION_INDIVIDUAL">
+              <PropertyRef Name="ID_FORMATIONINDIVIDUAL" />
+            </Principal>
+            <Dependent Role="ADHERENT">
+              <PropertyRef Name="ID_FORMATIONINDIVIDUAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjetFinFormationEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADHERENT" EntityType="Self.ADHERENT" />
+          <EntitySet Name="CLIENT_EVENEMENT" EntityType="Self.CLIENT_EVENEMENT" />
+          <EntitySet Name="CLIENT_SALLE" EntityType="Self.CLIENT_SALLE" />
+          <EntitySet Name="FORMATION_GROUPE" EntityType="Self.FORMATION_GROUPE" />
+          <EntitySet Name="FORMATION_INDIVIDUAL" EntityType="Self.FORMATION_INDIVIDUAL" />
+          <EntitySet Name="SALLE" EntityType="Self.SALLE" />
+          <AssociationSet Name="FK__ADHERENT__ID_FOR__37A5467C" Association="Self.FK__ADHERENT__ID_FOR__37A5467C">
+            <End Role="FORMATION_INDIVIDUAL" EntitySet="FORMATION_INDIVIDUAL" />
+            <End Role="ADHERENT" EntitySet="ADHERENT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjetFinFormationModelStoreContainer" CdmEntityContainer="ProjetFinFormationEntities1">
+          <EntitySetMapping Name="ADHERENT">
+            <EntityTypeMapping TypeName="ProjetFinFormationModel.ADHERENT">
+              <MappingFragment StoreEntitySet="ADHERENT">
+                <ScalarProperty Name="ID_ADHERENT" ColumnName="ID_ADHERENT" />
+                <ScalarProperty Name="CIN" ColumnName="CIN" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="PRENOM" ColumnName="PRENOM" />
+                <ScalarProperty Name="DATE_NAISSANCE" ColumnName="DATE_NAISSANCE" />
+                <ScalarProperty Name="ADRESSE" ColumnName="ADRESSE" />
+                <ScalarProperty Name="SEXE" ColumnName="SEXE" />
+                <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+                <ScalarProperty Name="ID_FORMATIONINDIVIDUAL" ColumnName="ID_FORMATIONINDIVIDUAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENT_EVENEMENT">
+            <EntityTypeMapping TypeName="ProjetFinFormationModel.CLIENT_EVENEMENT">
+              <MappingFragment StoreEntitySet="CLIENT_EVENEMENT">
+                <ScalarProperty Name="ID_CLIENT" ColumnName="ID_CLIENT" />
+                <ScalarProperty Name="CIN_CLIENT" ColumnName="CIN_CLIENT" />
+                <ScalarProperty Name="NOM_Client" ColumnName="NOM_Client" />
+                <ScalarProperty Name="PRENOM_CLIENT" ColumnName="PRENOM_CLIENT" />
+                <ScalarProperty Name="DATE_NAISSANCE_CLIENT" ColumnName="DATE_NAISSANCE_CLIENT" />
+                <ScalarProperty Name="ADRESSE_CLIENT" ColumnName="ADRESSE_CLIENT" />
+                <ScalarProperty Name="SEXE_CLIENT" ColumnName="SEXE_CLIENT" />
+                <ScalarProperty Name="TELEPHONE_CLIENT" ColumnName="TELEPHONE_CLIENT" />
+                <ScalarProperty Name="TYPE_EVENEMENT" ColumnName="TYPE_EVENEMENT" />
+                <ScalarProperty Name="NOM_EVENEMENT" ColumnName="NOM_EVENEMENT" />
+                <ScalarProperty Name="DATE_EVENEMENT" ColumnName="DATE_EVENEMENT" />
+                <ScalarProperty Name="DURE" ColumnName="DURE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENT_SALLE">
+            <EntityTypeMapping TypeName="ProjetFinFormationModel.CLIENT_SALLE">
+              <MappingFragment StoreEntitySet="CLIENT_SALLE">
+                <ScalarProperty Name="ID_CLIENT_SALLE" ColumnName="ID_CLIENT_SALLE" />
+                <ScalarProperty Name="CIN_CLIENT" ColumnName="CIN_CLIENT" />
+                <ScalarProperty Name="NOM_Client" ColumnName="NOM_Client" />
+                <ScalarProperty Name="PRENOM_CLIENT" ColumnName="PRENOM_CLIENT" />
+                <ScalarProperty Name="DATE_NAISSANCE_CLIENT" ColumnName="DATE_NAISSANCE_CLIENT" />
+                <ScalarProperty Name="ADRESSE_CLIENT" ColumnName="ADRESSE_CLIENT" />
+                <ScalarProperty Name="SEXE_CLIENT" ColumnName="SEXE_CLIENT" />
+                <ScalarProperty Name="TELEPHONE_CLIENT" ColumnName="TELEPHONE_CLIENT" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="dateDebut" ColumnName="dateDebut" />
+                <ScalarProperty Name="dateFin" ColumnName="dateFin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FORMATION_GROUPE">
+            <EntityTypeMapping TypeName="ProjetFinFormationModel.FORMATION_GROUPE">
+              <MappingFragment StoreEntitySet="FORMATION_GROUPE">
+                <ScalarProperty Name="ID_FORMATIONGROUPE" ColumnName="ID_FORMATIONGROUPE" />
+                <ScalarProperty Name="NOM_FR" ColumnName="NOM_FR" />
+                <ScalarProperty Name="Nom_Entrprise" ColumnName="Nom_Entrprise" />
+                <ScalarProperty Name="SECTEUR_ACTIVITE" ColumnName="SECTEUR_ACTIVITE" />
+                <ScalarProperty Name="MISSION" ColumnName="MISSION" />
+                <ScalarProperty Name="OBJECTIF" ColumnName="OBJECTIF" />
+                <ScalarProperty Name="EFFECTIF" ColumnName="EFFECTIF" />
+                <ScalarProperty Name="BESOIN_INDIVIDUELE" ColumnName="BESOIN_INDIVIDUELE" />
+                <ScalarProperty Name="BESOIN" ColumnName="BESOIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FORMATION_INDIVIDUAL">
+            <EntityTypeMapping TypeName="ProjetFinFormationModel.FORMATION_INDIVIDUAL">
+              <MappingFragment StoreEntitySet="FORMATION_INDIVIDUAL">
+                <ScalarProperty Name="ID_FORMATIONINDIVIDUAL" ColumnName="ID_FORMATIONINDIVIDUAL" />
+                <ScalarProperty Name="NOM_FR" ColumnName="NOM_FR" />
+                <ScalarProperty Name="SECTEUR_ACTIVITE" ColumnName="SECTEUR_ACTIVITE" />
+                <ScalarProperty Name="MODE_REGLEMENT" ColumnName="MODE_REGLEMENT" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALLE">
+            <EntityTypeMapping TypeName="ProjetFinFormationModel.SALLE">
+              <MappingFragment StoreEntitySet="SALLE">
+                <ScalarProperty Name="ID_SALLE" ColumnName="ID_SALLE" />
+                <ScalarProperty Name="CAPACITE" ColumnName="CAPACITE" />
+                <ScalarProperty Name="DISPONIBILITE" ColumnName="DISPONIBILITE" />
+                <ScalarProperty Name="PRIX" ColumnName="PRIX" />
+                <ScalarProperty Name="TypeSalle" ColumnName="TypeSalle" />
+                <ScalarProperty Name="DateDisponibilite" ColumnName="DateDisponibilite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

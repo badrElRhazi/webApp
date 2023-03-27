@@ -1,0 +1,94 @@
+﻿@model IEnumerable<site.Models.CLIENT_EVENEMENT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ChoixEventLayout1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CIN_CLIENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOM_Client)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRENOM_CLIENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATE_NAISSANCE_CLIENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADRESSE_CLIENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SEXE_CLIENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TELEPHONE_CLIENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TYPE_EVENEMENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOM_EVENEMENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATE_EVENEMENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DURE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CIN_CLIENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOM_Client)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRENOM_CLIENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATE_NAISSANCE_CLIENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADRESSE_CLIENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SEXE_CLIENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEPHONE_CLIENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TYPE_EVENEMENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOM_EVENEMENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATE_EVENEMENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DURE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_CLIENT }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_CLIENT }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_CLIENT })
+        </td>
+    </tr>
+}
+
+</table>

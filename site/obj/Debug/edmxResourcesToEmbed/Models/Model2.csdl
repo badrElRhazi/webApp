@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjetFinFormationSiteWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ADHERENT">
+    <Key>
+      <PropertyRef Name="ID_ADHERENT" />
+    </Key>
+    <Property Name="ID_ADHERENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CIN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NOM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PRENOM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DATE_NAISSANCE" Type="DateTime" Precision="3" />
+    <Property Name="ADRESSE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SEXE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TELEPHONE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FORMATION_INDIVIDUAL" Relationship="Self.FK__FORMATION__ID_AD__3C69FB99" FromRole="ADHERENT" ToRole="FORMATION_INDIVIDUAL" />
+  </EntityType>
+  <EntityType Name="CLIENT">
+    <Key>
+      <PropertyRef Name="ID_CLIENT" />
+    </Key>
+    <Property Name="ID_CLIENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CIN_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NOM_Client" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PRENOM_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DATE_NAISSANCE_CLIENT" Type="DateTime" Precision="3" />
+    <Property Name="ADRESSE_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SEXE_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TELEPHONE_CLIENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TYPEE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EVENEMENT">
+    <Key>
+      <PropertyRef Name="ID_EVENEMENT" />
+    </Key>
+    <Property Name="ID_EVENEMENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_EMPLOYE" Type="Int32" Nullable="false" />
+    <Property Name="TYPE_EVENEMENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NOM_EVENEMENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DATE_EVENEMENT" Type="DateTime" Precision="3" />
+    <Property Name="DURE" Type="Int32" />
+    <Property Name="PRIX_EVENEMENT" Type="Int32" />
+    <Property Name="iD_SALLE" Type="Int32" />
+    <NavigationProperty Name="SALLE" Relationship="Self.FK__EVENEMENT__iD_SA__5441852A" FromRole="EVENEMENT" ToRole="SALLE" />
+  </EntityType>
+  <EntityType Name="FORMATION_GROUPE">
+    <Key>
+      <PropertyRef Name="ID_FORMATIONGROUPE" />
+    </Key>
+    <Property Name="ID_FORMATIONGROUPE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOM_FR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SECTEUR_ACTIVITE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="MISSION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="OBJECTIF" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="EFFECTIF" Type="Int32" />
+    <Property Name="BESOIN_INDIVIDUELE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="BESOIN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="FORMATION_INDIVIDUAL">
+    <Key>
+      <PropertyRef Name="ID_FORMATIONINDIVIDUAL" />
+    </Key>
+    <Property Name="ID_FORMATIONINDIVIDUAL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOM_FR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SECTEUR_ACTIVITE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="MODE_REGLEMENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ID_ADHERENT" Type="Int32" />
+    <NavigationProperty Name="ADHERENT" Relationship="Self.FK__FORMATION__ID_AD__3C69FB99" FromRole="FORMATION_INDIVIDUAL" ToRole="ADHERENT" />
+  </EntityType>
+  <EntityType Name="SALLE">
+    <Key>
+      <PropertyRef Name="ID_SALLE" />
+    </Key>
+    <Property Name="ID_SALLE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CAPACITE" Type="Int32" />
+    <Property Name="DISPONIBILITE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PRIX" Type="Int32" />
+    <NavigationProperty Name="EVENEMENT" Relationship="Self.FK__EVENEMENT__iD_SA__5441852A" FromRole="SALLE" ToRole="EVENEMENT" />
+  </EntityType>
+  <Association Name="FK__FORMATION__ID_AD__3C69FB99">
+    <End Role="ADHERENT" Type="Self.ADHERENT" Multiplicity="0..1" />
+    <End Role="FORMATION_INDIVIDUAL" Type="Self.FORMATION_INDIVIDUAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ADHERENT">
+        <PropertyRef Name="ID_ADHERENT" />
+      </Principal>
+      <Dependent Role="FORMATION_INDIVIDUAL">
+        <PropertyRef Name="ID_ADHERENT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EVENEMENT__iD_SA__5441852A">
+    <End Role="SALLE" Type="Self.SALLE" Multiplicity="0..1" />
+    <End Role="EVENEMENT" Type="Self.EVENEMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SALLE">
+        <PropertyRef Name="ID_SALLE" />
+      </Principal>
+      <Dependent Role="EVENEMENT">
+        <PropertyRef Name="iD_SALLE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjetFinFormationSiteWebEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADHERENT" EntityType="Self.ADHERENT" />
+    <EntitySet Name="CLIENT" EntityType="Self.CLIENT" />
+    <EntitySet Name="EVENEMENT" EntityType="Self.EVENEMENT" />
+    <EntitySet Name="FORMATION_GROUPE" EntityType="Self.FORMATION_GROUPE" />
+    <EntitySet Name="FORMATION_INDIVIDUAL" EntityType="Self.FORMATION_INDIVIDUAL" />
+    <EntitySet Name="SALLE" EntityType="Self.SALLE" />
+    <AssociationSet Name="FK__FORMATION__ID_AD__3C69FB99" Association="Self.FK__FORMATION__ID_AD__3C69FB99">
+      <End Role="ADHERENT" EntitySet="ADHERENT" />
+      <End Role="FORMATION_INDIVIDUAL" EntitySet="FORMATION_INDIVIDUAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EVENEMENT__iD_SA__5441852A" Association="Self.FK__EVENEMENT__iD_SA__5441852A">
+      <End Role="SALLE" EntitySet="SALLE" />
+      <End Role="EVENEMENT" EntitySet="EVENEMENT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

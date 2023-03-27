@@ -1,0 +1,70 @@
+﻿@model site.Models.ADHERENT
+@{
+    ViewBag.Title = "Adherent";
+    Layout = "~/Views/Shared/_AdherentLayout1.cshtml";
+}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation individuel</title>
+    <link rel="stylesheet" href=@Url.Content("/Content/ss/formation_individuelle.css")>
+</head>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="style">
+            <form action="#">
+
+
+                <h2>Adherent</h2><br>
+                <label>CIN:</label>
+                @Html.EditorFor(model => model.CIN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CIN, "", new { @class = "text-danger" })
+                <label>Nom:</label>
+                @Html.EditorFor(model => model.NOM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NOM, "", new { @class = "text-danger" })
+                <label>Prenom:</label>
+                @Html.EditorFor(model => model.PRENOM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PRENOM, "", new { @class = "text-danger" })
+                <label>Date de naissance:</label>
+                @Html.EditorFor(model => model.DATE_NAISSANCE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DATE_NAISSANCE, "", new { @class = "text-danger" })
+                <br />
+                <label>Adresse:</label>
+                @Html.EditorFor(model => model.ADRESSE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ADRESSE, "", new { @class = "text-danger" })
+                <label>Tele/GSM:</label>
+                @Html.EditorFor(model => model.TELEPHONE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TELEPHONE, "", new { @class = "text-danger" })
+                <label>Sexe:</label>
+
+                @{
+                    List<SelectListItem> item = new List<SelectListItem>();
+                    item.Add(new SelectListItem { Text = "Homme", Value = "Homme" });
+                    item.Add(new SelectListItem { Text = "Femme", Value = "Femme" });
+                 
+                }
+
+                @Html.DropDownListFor(model => model.SEXE, item, "Selectionner", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SEXE, "", new { @class = "text-danger" })
+
+
+                <label>Fomration :</label>
+                @Html.DropDownList("ID_FORMATIONINDIVIDUAL", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ID_FORMATIONINDIVIDUAL, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Envoyer" class="btn btn-default" />
+                        <input type="button" value="<< Retourne à l'Accueil" onclick="window.location.href='@Url.Action("Index","Home")'">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="/Content/ss/JSFRIND.js"></script>
+    }
+    </body>

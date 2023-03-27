@@ -1,0 +1,83 @@
+﻿@model site.Models.ADHERENT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdherentLayout1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ADHERENT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRENOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRENOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_NAISSANCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_NAISSANCE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADRESSE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADRESSE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEPHONE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEPHONE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FORMATION_INDIVIDUAL.NOM_FR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FORMATION_INDIVIDUAL.NOM_FR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_ADHERENT }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
